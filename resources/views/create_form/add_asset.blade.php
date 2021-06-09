@@ -8,25 +8,42 @@
   <h1 class="rounded text-warning">Add Asset <a href="/asset" class="btn btn-danger float-end mt-3">Cancel</a></h1> <hr>
 <form action="{{ URL::route('asset') }}" method="post">
   @csrf
-  <table class="table text-light borderless">
+  <table class="table text-light table-borderless">
     <tbody>
       <tr>
         <td>
-          <label class="form-label">Name</label> 
-          <input type="text" class="form-control" name="name" required>
+          <label class="form-label" for="name">Name</label>
+          <input type="text" class="form-control form-control" name="name" required>
         </td>
         <td>
-          <label class="form-label" for="description">Description</label>
-          <textarea class="form-control" name="description" rows="1" cols=""></textarea>
+          <label class="form-label" for="supplier">Supplier</label>
+          <input type="text" class="form-control form-control" name="supplier" required>
         </td>
       </tr>
       <tr>
-
+        <td>
+          <label class="form-label" for="category">Category</label>
+          <select class="form-control form-control" name="category" required>
+              <option value="">Select Category</option>
+          </select>
+        </td>
+        <td>
+          <label class="form-label" for="category">Storage</label>
+          <select class="form-control form-control" name="storage" required>
+              <option value="">Select Storage</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label class="form-label" for="description">Description</label>
+          <textarea class="form-control form-control" name="description" rows="5" cols=""></textarea>
+        </td>
       </tr>
     </tbody>
   </table>
-  <div class="mb-3">
-    <button class="btn btn-success" name="save">Save</button>
+  <div class="d-grid gap-2">
+    <button class="btn btn-primary" name="save">Save</button>
   </div><hr>
 </form>
 

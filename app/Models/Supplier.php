@@ -7,5 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Supplier extends Model
 {
-    use HasFactory;
+    use HasFactory, Redirect;
+
+    protected $table="supplier";
+    protected $fillable=[
+      'name',
+      'contact',
+      'address',
+      'contact_person',
+      'category',
+      'created_at',
+      'updated_at'
+    ];
 }

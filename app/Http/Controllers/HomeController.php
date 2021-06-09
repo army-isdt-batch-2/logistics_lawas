@@ -40,6 +40,15 @@ class HomeController extends Controller
   public function add_asset(){
     return view ('/create_form/add_asset');
   }
+  public function add_asset_save(){
+    Asset::create(
+        $this->request->except('_token')
+    );
+    return view ('asset');
+  }
+
+
+
 
 
   public function storage(){

@@ -21,7 +21,10 @@ Route::get('/distribution', [App\Http\Controllers\HomeController::class, 'distri
 
 Route::get('/asset', [App\Http\Controllers\HomeController::class, 'asset'])->name('asset');
 Route::get('/create_form/add_asset', [App\Http\Controllers\HomeController::class, 'add_asset'])->name('add_asset');
-Route::get('/add_asset/save', [App\Http\Controllers\HomeController::class, 'add_asset'])->name('add_asset');
+Route::post('/add_asset/save', [App\Http\Controllers\HomeController::class, 'add_asset_save'])->name('add_asset_save');
 
 Route::get('/storage', [App\Http\Controllers\HomeController::class, 'storage'])->name('storage');
-Route::get('/supplier', [App\Http\Controllers\HomeController::class, 'supplier'])->name('supplier');
+
+Route::get('/supplier', [App\Http\Controllers\SupplierController::class, 'supplier'])->name('supplier');
+Route::get('/create_form/add_supplier', [App\Http\Controllers\SupplierController::class, 'add_supplier'])->name('add_supplier');
+Route::post('/add_supplier/save', [App\Http\Controllers\SupplierController::class, 'save'])->name('add_supplier.save');
