@@ -21,11 +21,25 @@ class SupplierController extends Controller
   public function add_supplier(){
     return view ('/create_form/add_supplier');
   }
-  public function save(){
+  public function add_supplier_save(){
     Supplier::create(
         $this->request->except('_token')
     );
     return Redirect::route('supplier');
-    return view('supplier');
   }
+  public function update_supplier($id){
+    return view('/create_form/update_supplier')->with([
+      'data' => Supplier::find($id)
+    ]);
+  }
+  public function update_supplier_save($id){
+    Supplier::find($id)->update(
+      $this->request->except('_token')
+    );
+    return Redirect::route('supplier');
+  }
+  public function delete_supplier($id){
+    Supplier::find($id)->delete();
+    return Redirect::route('supplier');
+    }
 }
